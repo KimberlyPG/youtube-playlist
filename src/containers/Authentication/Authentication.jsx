@@ -13,9 +13,10 @@ const Authentication = () => {
         <div>
             <Outlet />
             Authentication page
-            <form action="">
-                <button onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
-            </form>
+            <button onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
+            {/* <form>
+                
+            </form> */}
         </div>
     )
 }

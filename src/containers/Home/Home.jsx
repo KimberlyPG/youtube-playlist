@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { useState, React, FormEvent, ChangeEvent, FC } from "react";
+import { useState, useContext, FormEvent, ChangeEvent, FC } from "react";
+import { UserContext } from "../../context/user.context";
 import ReactPlayer from 'react-player'
 import youtube from "../../api/youtube";
 
@@ -15,6 +16,11 @@ import youtube from "../../api/youtube";
 const Home = () => {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
+
+    const { currentUser } = useContext(UserContext);
+    if(currentUser!=null) {
+    console.log("user: ", currentUser.displayName);
+    }
 
     const key = "AIzaSyD4IEtYHDc08LL9oFXMGLsYoVT_wBrJ8ec";
     const handleSubmit = (event) => {
@@ -47,6 +53,12 @@ const Home = () => {
                     <li>{videos.snippet.description}</li>
                     {/* <img src={videos.snippet.thumbnails.default.url} /> */}
                     <ReactPlayer url={`https://www.youtube.com/watch?v=${videos.id.videoId}`}/>
+                    if(currentUser!=null){
+                    <h1>Welcome {currentUser.displayName}</h1>
+                    }
+                    else {
+                        <h3>go to login</h3>
+                    }
                 </div>
             ))}
             {/* <div>
