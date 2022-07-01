@@ -1,7 +1,9 @@
 
 import { selectVideo } from "../../features/videos/videoSlice";
 import ReactPlayer from 'react-player'
+import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { addCollectionAndDocuments } from '../../utils/firebase/firebase'
 import {
     deleteVideo
   } from '../../features/videos/videoSlice';
@@ -10,12 +12,6 @@ const Playlist = () => {
     const playlist = useAppSelector(selectVideo);
     const dispatch = useAppDispatch();
     // const deleteFromPlaylist = () => dispatch(deleteVideo(playlist.id))
-
-    console.log("paylist ", playlist);
-
-    // const videoToRemove = () => {
-    //     playlist.find((item) => item.id === )
-    // }
 
     return (
         <div>

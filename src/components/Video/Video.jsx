@@ -7,7 +7,6 @@ import {
 
 const Video = ({ video }) => {
     const videoId = video.id.videoId;
-    console.log(typeof videoId);
     const dispatch = useAppDispatch();
     // const { playlist } = useAppSelector((state) => state.video )
     const [item, setItem] = useState({});
@@ -23,7 +22,6 @@ const Video = ({ video }) => {
         
     }, [videoId, video.snippet.description]);
 
-    console.log("item:", item);
     return (
         <div>
             <li>{video.snippet.description}</li>

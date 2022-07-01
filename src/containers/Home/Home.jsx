@@ -19,7 +19,6 @@ const Home = () => {
 
     const { currentUser } = useContext(UserContext);
     if(currentUser!=null) {
-    console.log("user: ", currentUser.displayName);
     }
 
     const key = "AIzaSyD4IEtYHDc08LL9oFXMGLsYoVT_wBrJ8ec";
@@ -27,10 +26,7 @@ const Home = () => {
         event.preventDefault();
         youtube .get(`search?&q=${name}`)
         .then((data) => setData(data.data.items));
-        // .then((data) => setItems(data.items));
-        console.log("data: ", data);
     }
-    console.log("data: ", data);
 
     const handleChange = (event) => {
         event.preventDefault();
