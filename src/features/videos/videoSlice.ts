@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { addDoc, collection } from 'firebase/firestore';
-import { useEffect } from 'react';
+import { collection, getDocs, query } from 'firebase/firestore';
 import { RootState, AppThunk } from '../../app/store';
-import { addCollectionAndDocuments, db } from '../../utils/firebase/firebase'
+import { addCollectionAndDocuments, db, deleteDocument, getPlaylistAndDocuments } from '../../utils/firebase/firebase'
 
 type PlaylistProps = {
     id: string;
     description: string;
-    url: string;
+    // url: string;
 }
 
 const initialState: Array<PlaylistProps> = [
@@ -33,15 +32,20 @@ export const videoSlice = createSlice({
     reducers: {
         addVideo: (state, action) => {
             state.push(action.payload);
-            addCollectionAndDocuments('playlist', action.payload); 
+            // addCollectionAndDocuments('playlist', action.payload); 
         },
         deleteVideo: (state, action) => {
+            // deleteDocument('playlist', 'documentID');
             return state.filter((videoItem) => videoItem.id !== action.payload); 
+        },
+        getVideo: (state, action) => {
+            return state = action.payload;
+            // console.log("state: ", action.payload);
         }
     }
 })
 
-export const { addVideo, deleteVideo } = videoSlice.actions;
+export const { addVideo, deleteVideo, getVideo } = videoSlice.actions;
 
 export const selectVideo = (state: RootState) => state.video;
 export default videoSlice.reducer;

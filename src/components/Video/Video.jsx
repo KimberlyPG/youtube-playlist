@@ -1,26 +1,40 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import ReactPlayer from 'react-player'
 import { useAppDispatch } from '../../app/hooks';
 import {
     addVideo
   } from '../../features/videos/videoSlice';
+import { addCollectionAndDocuments } from '../../utils/firebase/firebase';
+import { UserContext } from '../../context/user.context';
 
 const Video = ({ video }) => {
     const videoId = video.id.videoId;
     const dispatch = useAppDispatch();
-    // const { playlist } = useAppSelector((state) => state.video )
-    const [item, setItem] = useState({});
-    
-    const addVideoToPlaylist = () => dispatch(addVideo(item))
-    
-    useEffect(() => {
-        {setItem({
+    const [item, setItem] = useState([]);
+    const { currentUser } = useContext(UserContext);
+    // console.log("user", currentUser);
+
+
+    const addVideoToPlaylist = () => {
+        setItem(item => [...item, {
             id: videoId,
             description: video.snippet.description,
-            url: `https://www.youtube.com/watch?v=${videoId}`,
-        })}
+        }])
+        // dispatch(addVideo(item));
+        // addCollectionAndDocuments('playlist', item, currentUser.uid);
+    }
+    console.log(item);
+    
+    
+    // useEffect(() => {
+
+    //     setItem.push({
+    //         id: videoId,
+    //         description: video.snippet.description,
+    //         // url: `https://www.youtube.com/watch?v=${videoId}`,
+    //     })
         
-    }, [videoId, video.snippet.description]);
+    // }, [videoId, video.snippet.description]);
 
     return (
         <div>

@@ -4,8 +4,28 @@ import Navigation from './containers/Navigation/Navigation'
 import Home from './containers/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
 import Playlist from './containers/Playlist/Playlist';
+import { useAppDispatch } from "./app/hooks";
+import { getPlaylistAndDocuments } from "./utils/firebase/firebase";
+import {
+    getVideo
+  } from './features/videos/videoSlice';
+import { useContext, useEffect } from 'react';
+import { UserContext } from './context/user.context';
 
 function App() {
+
+  const dispatch = useAppDispatch();
+  const { currentUser } = useContext(UserContext);
+
+  useEffect(() => {
+    if(!!currentUser) {
+        getPlaylistAndDocuments()
+        .then((video) => {
+            dispatch(getVideo(video))
+        })
+    }
+  }, [currentUser]);
+
   return (
       <BrowserRouter>
         <Routes>

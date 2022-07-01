@@ -13,6 +13,7 @@ import {
   setDoc, //setting document data
   collection,
   writeBatch,
+  deleteDoc,
   query,
   getDocs,
   addDoc
@@ -44,33 +45,42 @@ export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback) 
 }
 
-//  Instance to get or set data to our document 
 export const db = getFirestore();
 
 // Add collection and documents to firestore
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd, currentUser) => {
+  console.log(objectsToAdd);
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db); 
 
-  const docRef = doc(collectionRef);
-  batch.set(docRef, objectsToAdd);
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, currentUser);
+    batch.set(docRef, object);
+  })
   
   await batch.commit();
   console.log('done');
 }
 
+// Detele playlist from firebase
+export const deleteDocument = async (collectionKey, documentName) => {
+  await deleteDoc(doc(db, collectionKey, documentName));
+  
+}
+
 // get collection from firestore
-// export const getCategoriesAndDocuments = async () => {
-//   const collectionRef = collection(db, 'categories');
-//   const q = query(collectionRef);
+export const getPlaylistAndDocuments = async () => {
+  const collectionRef = collection(db, 'playlist');
+  const q = query(collectionRef);
 
-//   const querySnapshot = await getDocs(q);
-//   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-//     const { title, items } = docSnapshot.data();
-//     acc[title.toLowerCase()] = items;
-//     return acc;
-//   }, {})
+  const querySnapshot = await getDocs(q);
+  const data = []
+  querySnapshot.forEach((doc) => {
+    // console.log(doc.id, " => ", doc.data());
+    data.push(doc.data());
+  });
+  // console.log("data: ",data);
+  return data;
+}
 
-//   return categoryMap;
-// }
 
