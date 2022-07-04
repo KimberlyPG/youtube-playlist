@@ -11,15 +11,17 @@ import {
   } from './features/videos/videoSlice';
 import { useContext, useEffect } from 'react';
 import { UserContext } from './context/user.context';
+import { connectFirestoreEmulator } from 'firebase/firestore';
 
 function App() {
 
   const dispatch = useAppDispatch();
   const { currentUser } = useContext(UserContext);
+  console.log("currentUser", currentUser);
 
   useEffect(() => {
     if(!!currentUser) {
-        getPlaylistAndDocuments()
+        getPlaylistAndDocuments(currentUser)
         .then((video) => {
             dispatch(getVideo(video))
         })

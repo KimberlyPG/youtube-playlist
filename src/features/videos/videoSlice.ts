@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { RootState, AppThunk } from '../../app/store';
-import { addCollectionAndDocuments, db, deleteDocument, getPlaylistAndDocuments } from '../../utils/firebase/firebase'
+import { deleteDocument } from '../../utils/firebase/firebase';
 
 type PlaylistProps = {
     id: string;
@@ -31,16 +31,18 @@ export const videoSlice = createSlice({
     initialState,
     reducers: {
         addVideo: (state, action) => {
-            state.push(action.payload);
-            // addCollectionAndDocuments('playlist', action.payload); 
+            if(state.some(video => video.id === action.payload.id)){
+                console.log("no puede añadir 2 veces");
+            }else {
+                state.push(action.payload);
+            }
         },
         deleteVideo: (state, action) => {
-            // deleteDocument('playlist', 'documentID');
+            console.log("payload delete: ", action.payload);
             return state.filter((videoItem) => videoItem.id !== action.payload); 
         },
         getVideo: (state, action) => {
             return state = action.payload;
-            // console.log("state: ", action.payload);
         }
     }
 })

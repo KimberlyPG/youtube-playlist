@@ -1,9 +1,14 @@
+import { useState, useContext, FormEvent, ChangeEvent, FC, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useState, useContext, FormEvent, ChangeEvent, FC } from "react";
-import { UserContext } from "../../context/user.context";
-import youtube from "../../api/youtube";
 import ReactPlayer from 'react-player'
+
 import Video from "../../components/Video/Video";
+
+import youtube from "../../api/youtube";
+import { UserContext } from "../../context/user.context";
+
+
+
 
 // export type DataProps = {
 //     description: string;
@@ -16,6 +21,7 @@ import Video from "../../components/Video/Video";
 const Home = () => {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
+    
 
     const { currentUser } = useContext(UserContext);
     if(currentUser!=null) {

@@ -4,56 +4,35 @@ import { useAppDispatch } from '../../app/hooks';
 import {
     addVideo
   } from '../../features/videos/videoSlice';
-import { addCollectionAndDocuments } from '../../utils/firebase/firebase';
+import { addSong } from '../../utils/firebase/firebase';
 import { UserContext } from '../../context/user.context';
 
 const Video = ({ video }) => {
     const videoId = video.id.videoId;
     const dispatch = useAppDispatch();
-    const [item, setItem] = useState([]);
     const { currentUser } = useContext(UserContext);
-    // console.log("user", currentUser);
 
-
-    const addVideoToPlaylist = () => {
-        setItem(item => [...item, {
-            id: videoId,
-            description: video.snippet.description,
-        }])
-        // dispatch(addVideo(item));
-        // addCollectionAndDocuments('playlist', item, currentUser.uid);
+    const item = {
+        id: videoId, 
+        title: video.snippet.title
     }
-    console.log(item);
-    
-    
-    // useEffect(() => {
-
-    //     setItem.push({
-    //         id: videoId,
-    //         description: video.snippet.description,
-    //         // url: `https://www.youtube.com/watch?v=${videoId}`,
-    //     })
-        
-    // }, [videoId, video.snippet.description]);
+    const addVideoToPlaylist = () => {
+        addSong(item, currentUser.uid);
+        dispatch(addVideo(item));
+    }
 
     return (
         <div>
             <li>{video.snippet.description}</li>
             {/* <img src={videos.snippet.thumbnails.default.url} /> */}
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${videoId}`}/>
+            <ReactPlayer 
+                url={`https://www.youtube.com/watch?v=${videoId}`}
+                muted={true}
+                controls={false}
+            />
             <button onClick={addVideoToPlaylist}>Add to playlist</button>
         </div>
     )
 }
 
 export default Video;
-// const ejemplo = [
-//     {
-//         description: video.snippet.description,
-//         url: `https://www.youtube.com/watch?v=${videoId}`
-//     },
-//     {
-//         description: video.snippet.description,
-//         url: `https://www.youtube.com/watch?v=${videoId}`
-//     },
-// ]
