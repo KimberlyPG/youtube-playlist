@@ -1,5 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import ReactPlayer from 'react-player'
+
+import { VideoContainer } from './video.styles';
+
 import { useAppDispatch } from '../../app/hooks';
 import {
     addVideo
@@ -14,7 +17,8 @@ const Video = ({ video }) => {
 
     const item = {
         id: videoId, 
-        title: video.snippet.title
+        title: video.snippet.title,
+        image: video.snippet.thumbnails.high.url
     }
     const addVideoToPlaylist = () => {
         addSong(item, currentUser.uid);
@@ -22,16 +26,16 @@ const Video = ({ video }) => {
     }
 
     return (
-        <div>
-            <li>{video.snippet.description}</li>
+        <VideoContainer>
+            {video.snippet.title}
             {/* <img src={videos.snippet.thumbnails.default.url} /> */}
             <ReactPlayer 
                 url={`https://www.youtube.com/watch?v=${videoId}`}
-                muted={true}
-                controls={false}
+                width= "90%"
+                height="90%"
             />
             <button onClick={addVideoToPlaylist}>Add to playlist</button>
-        </div>
+        </VideoContainer>
     )
 }
 

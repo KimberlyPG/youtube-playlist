@@ -6,6 +6,7 @@ import { deleteDocument } from '../../utils/firebase/firebase';
 type PlaylistProps = {
     id: string;
     description: string;
+    image: string;
     // url: string;
 }
 

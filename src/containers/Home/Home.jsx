@@ -29,8 +29,8 @@ const Home = () => {
         event.preventDefault();
         youtube .get(`search?&q=${name}`)
         .then((data) => setData(data.data.items));
-        console.log(data);
     }
+    console.log("data a", data);
 
     const handleChange = (event) => {
         event.preventDefault();
@@ -43,7 +43,7 @@ const Home = () => {
             <Outlet />
             <HomeContainer>
                 <SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />    
-                <VideosList data={data}/>
+                <VideosList data={data} />
             </HomeContainer>
         </div>
     )

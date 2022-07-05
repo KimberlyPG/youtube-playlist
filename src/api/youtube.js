@@ -6,7 +6,7 @@ export default axios.create({
     {
         part:'snippet',
         maxResults:8,
-        key: 'AIzaSyD4IEtYHDc08LL9oFXMGLsYoVT_wBrJ8ec',
+        key: 'AIzaSyD1PMVUkThMRe08BO_VVOX00JJzpAFL9p8',
         origin: 'http://localhost:3000' 
     }
 })

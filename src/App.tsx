@@ -4,6 +4,8 @@ import Navigation from './containers/Navigation/Navigation'
 import Home from './containers/Home/Home';
 import Authentication from './containers/Authentication/Authentication';
 import Playlist from './containers/Playlist/Playlist';
+import Watch from './containers/Watch/Watch';
+
 import { useAppDispatch } from "./app/hooks";
 import { getPlaylistAndDocuments } from "./utils/firebase/firebase";
 import {
@@ -35,6 +37,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='playlist' element={<Playlist />} />
             <Route path='authentication' element={<Authentication />} />
+            <Route path='watch' element={<Watch />} />
           </Route>
         </Routes>
       </BrowserRouter> 

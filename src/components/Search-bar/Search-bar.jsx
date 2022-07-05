@@ -1,21 +1,19 @@
-import { SearchBarContainer, SearchInput, Icon, Button } from "./search-bar-styles";
+import { Form, SearchInput, Icon } from "./search-bar-styles";
+import { BsSearch } from 'react-icons/bs';
 import searchicon from '../../assets/searchicon.png'
 
 const SearchBar = ({ handleSubmit, handleChange}) => {
     return (
-        <SearchBarContainer>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <SearchInput 
                     type="search" 
                     onChange={handleChange}
                 />
                 <button type="submit">
-                    image: {background}
-                    {/* <img src={searchicon} alt="searchbar icon" /> */}
+                    <BsSearch color= 'white' />
+                    {/* <Icon src={searchicon} alt="searchbar icon" /> */}
                 </button>
-            </form>
-            {/* <img src={searchicon} alt="searchbar icon" /> */}
-        </SearchBarContainer>
+            </Form>
     )
 }
 
