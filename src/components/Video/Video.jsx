@@ -1,8 +1,7 @@
-import { useEffect, useState, useContext } from 'react';
-import ReactPlayer from 'react-player'
-
-import { VideoContainer } from './video.styles';
-
+import { useContext } from 'react';
+import { AiFillPlayCircle } from "react-icons/ai";
+import { VideoContainer, Title, Icon, VideoPlayer, Button, VideoLink } from './video.styles';
+import { Link } from "react-router-dom";
 import { useAppDispatch } from '../../app/hooks';
 import {
     addVideo
@@ -16,7 +15,7 @@ const Video = ({ video }) => {
     const { currentUser } = useContext(UserContext);
 
     const item = {
-        id: videoId, 
+        id: video.id.videoId, 
         title: video.snippet.title,
         image: video.snippet.thumbnails.high.url
     }
@@ -27,14 +26,22 @@ const Video = ({ video }) => {
 
     return (
         <VideoContainer>
-            {video.snippet.title}
-            {/* <img src={videos.snippet.thumbnails.default.url} /> */}
-            <ReactPlayer 
-                url={`https://www.youtube.com/watch?v=${videoId}`}
-                width= "90%"
-                height="90%"
-            />
-            <button onClick={addVideoToPlaylist}>Add to playlist</button>
+            {/* <PlaylistVideo> */}
+            <VideoPlayer>
+                {console.log(item)}
+                <VideoLink to='/watch' state={{item}}>
+                    <img src={item.image} />
+                    <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>
+                    <Title>{item.title}</Title>
+                    {/* <ReactPlayer 
+                        url={`https://www.youtube.com/watch?v=${videoId}`}
+                        width= "90%"
+                        height="90%"
+                    /> */}
+                </VideoLink>
+                <Button onClick={addVideoToPlaylist}>Add to playlist</Button>
+            </VideoPlayer>       
+            {/* </PlaylistVideo> */}
         </VideoContainer>
     )
 }

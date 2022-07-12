@@ -6,7 +6,6 @@ const VideosList = ({ data }) => {
         <div>
         <VideosContainer>
             {data &&
-            // data.filter((_, idx) => idx < 4 ) 
             data.map((video) => (
                 <Video video={video} />
             ))}

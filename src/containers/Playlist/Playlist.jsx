@@ -10,15 +10,18 @@ import { PlaylistContainer, PlaylistVideo, Title, VideoPlayer, Button, PlaylistL
 
 import { selectVideo } from "../../features/videos/videoSlice";
 import { UserContext } from '../../context/user.context';
+
 import {
     deleteVideo,
   } from '../../features/videos/videoSlice';
 import { deleteDocument } from "../../utils/firebase/firebase";
+import Watch from '../Watch/Watch';
 
 const Playlist = () => {
     const playlist = useAppSelector(selectVideo);
     const dispatch = useAppDispatch();
     const { currentUser } = useContext(UserContext);
+    
     console.log("state: ", playlist);
     // const deleteFromPlaylist = () => dispatch(deleteVideo(playlist.id))
 
@@ -29,13 +32,12 @@ const Playlist = () => {
 
     return (
         <PlaylistContainer>
-            {/* <h1>Playlist page</h1> */}
             {playlist &&
-            // playlist.filter((_, idx) => idx < 4 )  
             playlist.map((videos) => (
                 <PlaylistVideo>
                     <VideoPlayer>
-                    <Link to='/watch'>
+                    {console.log(videos)}
+                    <Link to='/watch' state={{videos}}>
                         {/* <ReactPlayer 
                             url={`https://www.youtube.com/watch?v=${videos.id}`}
                             width= "95%"
