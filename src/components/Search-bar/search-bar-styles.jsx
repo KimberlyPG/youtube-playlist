@@ -9,11 +9,10 @@ export const Form = styled.form`
     position: relative;
     align-items: center;
     justify-content: center;
-    // background-color: #37474f;
 
     button {
         height: 100%;
-        // background: #909090;
+        background: #d3d3d3;
         border: none;
     }
 `;
@@ -28,13 +27,10 @@ export const SearchInput = styled.input`
     margin: auto 0;
     width: 600px;
     background: #F8F9F9
-    // margin-left:50%;
-    // transform: translateX(-50%);
+    border-radius: 2px 0 0 2px;
+    box-shadow: inset 0 1px 2px #eee;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    font-family: Arial;
+    color: #606060;
 `;
-
-export const Icon = styled.img`
-    // background: #909090;
-    height: 50%;
-    width: 100%;
-`;
-

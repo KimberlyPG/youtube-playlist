@@ -20,16 +20,18 @@ export const Title = styled.div`
 `
 
 export const PlaylistContainer = styled.div`
-padding: 3% 4% 0 0;
-    img {
-        width: 200px;
-        height: 110px; 
-        object-fit: cover;
-        margin-bottom: 5px;
-        &:hover {
-            opacity: 0.8;
-            }
-    }
+    overflow-y: scroll;
+    padding: 3% 4% 0 0;
+    height: 730px;
+        img {
+            width: 200px;
+            height: 110px; 
+            object-fit: cover;
+            margin-bottom: 5px;
+            &:hover {
+                opacity: 0.8;
+                }
+        }
 `
 
 export const VideosTitle = styled.div`

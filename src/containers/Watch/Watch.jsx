@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink } from "./watch.styles";
 import { useAppSelector  } from "../../app/hooks";
 import { selectVideo } from "../../features/videos/videoSlice";
-import Playlist from "../Playlist/Playlist";
 
 const Watch = ( ) => {
     const state = useLocation();
-    const video = state.state.videos
-    console.log(state.state.videos);
+    const video = state.state.item
     const playlist = useAppSelector(selectVideo);
 
     return(
@@ -25,11 +23,11 @@ const Watch = ( ) => {
             </VideoContainer>
             <PlaylistContainer>
                 {playlist &&
-                playlist.filter((item) => item.id !== video.id).map((videos) => (
+                playlist.filter((items) => items.id !== video.id).map((item) => (
                     <div>
-                        <VideoLink to='/watch' state={{videos}}>
-                            <img src={videos.image} />
-                            <VideosTitle>{videos.title}</VideosTitle>
+                        <VideoLink to='/watch' state={{item}}>
+                            <img src={item.image} />
+                            <VideosTitle>{item.title}</VideosTitle>
                         </VideoLink>
                     </div>
                 ))}

@@ -44,11 +44,14 @@ export const videoSlice = createSlice({
         },
         getVideo: (state, action) => {
             return state = action.payload;
+        },
+        cleanState: (state, action) => {
+            return state = action.payload;
         }
     }
 })
 
-export const { addVideo, deleteVideo, getVideo } = videoSlice.actions;
+export const { addVideo, deleteVideo, getVideo, cleanState } = videoSlice.actions;
 
 export const selectVideo = (state: RootState) => state.video;
 export default videoSlice.reducer;

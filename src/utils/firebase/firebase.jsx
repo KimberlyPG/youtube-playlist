@@ -4,20 +4,17 @@ import {
     getAuth, 
     signInWithPopup,
     GoogleAuthProvider, 
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from 'firebase/auth';
 import {
   getFirestore,
-  Firestore,
-  doc, //allows us to retrieve documents inside our firestore database
-  getDoc, //gettting document data
-  setDoc, //setting document data
+  doc, 
+  setDoc, 
   collection,
-  writeBatch,
   deleteDoc,
   query,
   getDocs,
-  addDoc
 } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -42,26 +39,7 @@ export const signInWithGooglePopup = () => {
     return signInWithPopup(auth, provider);
 };
 
-export const onAuthStateChangedListener = (callback) => {
-  onAuthStateChanged(auth, callback) 
-}
-
 export const db = getFirestore();
-
-// Add collection and documents to firestore
-// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd, currentUser) => {
-//   console.log(objectsToAdd);
-//   const collectionRef = collection(db, collectionKey);
-//   const batch = writeBatch(db); 
-
-//   // objectsToAdd.forEach((object) => {
-//     const docRef = doc(collectionRef, currentUser);
-//     batch.set(docRef, objectsToAdd);
-//   // })
-  
-//   await batch.commit();
-//   console.log('done');
-// }
 
 export const addSong = ( objectsToAdd, currentUser) => {
   const docRef = doc(db, 'playlist', currentUser, 'userPlaylist', objectsToAdd.id);
@@ -82,11 +60,13 @@ export const getPlaylistAndDocuments = async (currentUser) => {
   const querySnapshot = await getDocs(q);
   const data = []
   querySnapshot.forEach((doc) => {
-    // console.log(doc.id, " => ", doc.data());
     data.push(doc.data());
   });
-  // console.log("data: ",data);
   return data;
 }
 
+export const signOutUser = async () => await signOut(auth);
 
+export const onAuthStateChangedListener = (callback) => {
+  onAuthStateChanged(auth, callback) 
+}

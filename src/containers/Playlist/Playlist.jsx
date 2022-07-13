@@ -22,9 +22,6 @@ const Playlist = () => {
     const dispatch = useAppDispatch();
     const { currentUser } = useContext(UserContext);
     
-    console.log("state: ", playlist);
-    // const deleteFromPlaylist = () => dispatch(deleteVideo(playlist.id))
-
     const deleteDocumentFromFirebase = (videoId) => {
         deleteDocument(currentUser, videoId)
         dispatch(deleteVideo(videoId))
@@ -33,22 +30,21 @@ const Playlist = () => {
     return (
         <PlaylistContainer>
             {playlist &&
-            playlist.map((videos) => (
+            playlist.map((item) => (
                 <PlaylistVideo>
                     <VideoPlayer>
-                    {console.log(videos)}
-                    <Link to='/watch' state={{videos}}>
+                    <Link to='/watch' state={{item}}>
                         {/* <ReactPlayer 
                             url={`https://www.youtube.com/watch?v=${videos.id}`}
                             width= "95%"
                             height="95%"
                         />   */}
-                        <img src={videos.image} />
+                        <img src={item.image} />
                         <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>
                     </Link> 
-                        <Button onClick={() => deleteDocumentFromFirebase(videos.id)}>Remove</Button> 
+                        <Button onClick={() => deleteDocumentFromFirebase(item.id)}>Remove</Button> 
                     </VideoPlayer>
-                    <PlaylistLink to='/watch'><Title>{videos.title}</Title></PlaylistLink>
+                    <PlaylistLink to='/watch'><Title>{item.title}</Title></PlaylistLink>
                 </PlaylistVideo>
             ))}
         </PlaylistContainer>

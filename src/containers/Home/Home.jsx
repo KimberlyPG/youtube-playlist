@@ -25,17 +25,20 @@ const Home = () => {
     if(currentUser!=null) {
     }
 
+    // useEffect(() => {
+    //     youtube .get(`search?&q=${name}`)
+    //     .then((data) => setData(data.data.items));
+    // },[]);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         youtube .get(`search?&q=${name}`)
         .then((data) => setData(data.data.items));
     }
-    console.log("data a", data);
 
     const handleChange = (event) => {
         event.preventDefault();
         setName(event.target.value);
-        console.log(name);
     }
 
     return (

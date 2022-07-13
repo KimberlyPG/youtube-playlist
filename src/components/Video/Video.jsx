@@ -28,7 +28,6 @@ const Video = ({ video }) => {
         <VideoContainer>
             {/* <PlaylistVideo> */}
             <VideoPlayer>
-                {console.log(item)}
                 <VideoLink to='/watch' state={{item}}>
                     <img src={item.image} />
                     <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>

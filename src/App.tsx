@@ -8,8 +8,10 @@ import Watch from './containers/Watch/Watch';
 
 import { useAppDispatch } from "./app/hooks";
 import { getPlaylistAndDocuments } from "./utils/firebase/firebase";
+import { onAuthStateChangedListener } from './utils/firebase/firebase';
 import {
-    getVideo
+    getVideo,
+    cleanState
   } from './features/videos/videoSlice';
 import { useContext, useEffect } from 'react';
 import { UserContext } from './context/user.context';
@@ -19,17 +21,19 @@ function App() {
 
   const dispatch = useAppDispatch();
   const { currentUser } = useContext(UserContext);
-  console.log("currentUser", currentUser);
+  console.log("User: ", currentUser);
 
   useEffect(() => {
     if(!!currentUser) {
         getPlaylistAndDocuments(currentUser)
         .then((video) => {
-            dispatch(getVideo(video))
+            dispatch(getVideo(video));
         })
+    } else {
+        dispatch(cleanState([]));
     }
   }, [currentUser]);
-
+  
   return (
       <BrowserRouter>
         <Routes>
