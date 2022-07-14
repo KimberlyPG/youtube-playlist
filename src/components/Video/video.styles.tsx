@@ -13,6 +13,21 @@ export const VideoContainer = styled.div`
             width: 95%;
             height: 100%;
             object-fit: cover;
+
+            @media (max-width: 1120px) {
+                & {
+                    width: 95%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+    
+            @media (max-width: 450px) {
+                & {
+                    width: 92%;
+                    // object-fit: cover;
+                }
+            }
         }
     `;
 

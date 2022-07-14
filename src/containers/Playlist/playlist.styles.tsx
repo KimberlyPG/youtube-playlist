@@ -8,6 +8,20 @@ export const PlaylistContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
     padding: 0 3% 5% 5%;
     margin: 2px 2px 2px 2px;
+
+    @media (max-width: 1120px) {
+        & {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 450px) {
+        & {
+            width: 100%;
+            margin: auto;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
 `;
 
 export const PlaylistVideo = styled.div`
@@ -16,6 +30,21 @@ export const PlaylistVideo = styled.div`
         width: 95%;
         height: 100%;
         object-fit: cover;
+
+        @media (max-width: 1120px) {
+            & {
+                width: 95%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        @media (max-width: 450px) {
+            & {
+                width: 92%;
+                // object-fit: cover;
+            }
+        }
     }
 `;
 
@@ -56,6 +85,7 @@ export const VideoPlayer = styled.div`
             display: flex;
         }
     }
+}
 `;
 
 export const Button = styled.button`

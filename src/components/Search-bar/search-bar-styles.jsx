@@ -33,4 +33,10 @@ export const SearchInput = styled.input`
     font-size: 18px;
     font-family: Arial;
     color: #606060;
+
+    @media (max-width: 450px) {
+        & {
+          width: 80%;
+        }
+      }
 `;

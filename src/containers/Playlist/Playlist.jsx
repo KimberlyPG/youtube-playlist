@@ -34,11 +34,6 @@ const Playlist = () => {
                 <PlaylistVideo>
                     <VideoPlayer>
                     <Link to='/watch' state={{item}}>
-                        {/* <ReactPlayer 
-                            url={`https://www.youtube.com/watch?v=${videos.id}`}
-                            width= "95%"
-                            height="95%"
-                        />   */}
                         <img src={item.image} />
                         <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>
                     </Link> 

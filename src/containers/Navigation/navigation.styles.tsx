@@ -11,23 +11,36 @@ export const NavigationContainer = styled.div`
 `;
 
 export const LogoContainer = styled(Link)`
-  text-decoration: none;
-  display: flex;
-  height: 20px;
-  width: 250px;
-  flex: none;
-  img {
-    margin-left: 15%;
-  }
+    height: 40%;
+    width: 250px;
+    display: flex;
+    text-decoration: none;
+
+    @media (max-width: 1020px) {
+      & {
+        width: 20%;
+      }
+    }
+  
+    img {
+        margin-left: 15%;
+      }
+
+      @media (max-width: 450px) {
+        & {
+          width: 20%;
+        }
+      }
 `;
 
 export const Title = styled.div`
-  font-size: 18px;
+  font-size: 17px;
   color: #030303;
   margin-left: 5%;
   font-weight: bold;
   display: flex;
   align-items: center;
+  
 `
 
 export const Hour = styled.div`
@@ -49,13 +62,38 @@ export const NavLinks = styled.div`
     border-radius: 50%;
     width: 35px;
     margin-left: 2%;
+
+    @media (max-width: 450px) {
+      & {
+        width: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 450px) {
+    & {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 1020px) {
+    & {
+      width: 70%;
+      padding-right: 5%;
+    }
   }
 `;
 
 export const NavLink = styled(Link)`
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px 15px;
   cursor: pointer;
   text-decoration: none;
   color: #606060;
+
+  @media (max-width: 450px) {
+    & {
+      font-size: 12px;
+    }
+  }
 `;
