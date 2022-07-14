@@ -74,17 +74,18 @@ export const VideoLink = styled(Link)`
   margin-bottom: 15px;
   cursor: pointer;
   overflow: hidden;
+  // width: 100%;
 
   @media (max-width: 1120px) {
     & {
-        width: 100vh;
+        width: 65%;
     }
   }
 
   @media (max-width: 450px) {
     & {
-        width: 100vh;
-    }
+      width: 43%;
+      }
   }
 `;
 
@@ -98,14 +99,12 @@ export const Image = styled.img`
     
   @media (max-width: 1120px) {
     & {
-        width: 40vh;
+        width: 30vh;
     }
   }
   @media (max-width: 450px) {
     & {
-
-        width: 53vh;
-        
+        width: 45%;
     }
   }
 `;
@@ -119,8 +118,7 @@ export const VideosTitle = styled.div`
   @media (max-width: 1120px) {
     & {
         margin-left: 10px;
-        font-size: 20px;
+        font-size: 16px;
     }
   }
-
 `;
