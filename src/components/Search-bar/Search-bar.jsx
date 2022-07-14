@@ -1,20 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
 import { Form, SearchInput, Icon } from "./search-bar-styles";
 import { BsSearch } from 'react-icons/bs';
-import { useEffect } from "react";
 
-const SearchBar = ({ handleSubmit, handleChange }) => {
-
-    const history = useNavigate();
-    console.log("history", !!handleSubmit);
-
-    // useEffect(() => {
-    //     if(isWatch){
-    //         history('/');
-    //     }
-    // },{isWatch})
-
+const SearchBar = ({ handleSubmit, handleChange}) => {
     return (
             <Form onSubmit={handleSubmit}>
                 <SearchInput 

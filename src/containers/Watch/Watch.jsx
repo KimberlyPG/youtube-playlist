@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink } from "./watch.styles";
 import { useAppSelector  } from "../../app/hooks";
 import { selectVideo } from "../../features/videos/videoSlice";
-import SearchBar from "../../components/Search-bar/Search-bar";
 
 const Watch = ( ) => {
     const state = useLocation();
@@ -23,7 +22,6 @@ const Watch = ( ) => {
             <Title>{video.title}</Title>
             </VideoContainer>
             <PlaylistContainer>
-            <SearchBar />
                 {playlist &&
                 playlist.filter((items) => items.id !== video.id).map((item) => (
                     <div>

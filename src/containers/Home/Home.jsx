@@ -1,9 +1,9 @@
 import { useState, useContext, FormEvent, ChangeEvent, FC, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-import Video from "../../components/Video/Video";
 import SearchBar from "../../components/Search-bar/Search-bar";
-import { HomeContainer, VideosContainer } from "./home.styles";
+import VideosList from "../../components/Videos-list/Videos-list";
+import { HomeContainer } from "./home.styles";
 
 import youtube from "../../api/youtube";
 import { UserContext } from "../../context/user.context";
@@ -46,12 +46,7 @@ const Home = () => {
             <Outlet />
             <HomeContainer>
                 <SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />    
-                <VideosContainer>
-                    {data &&
-                    data.map((video) => (
-                        <Video video={video} />
-                    ))}
-                </VideosContainer>
+                <VideosList data={data} />
             </HomeContainer>
         </div>
     )
