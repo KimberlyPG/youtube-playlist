@@ -11,13 +11,13 @@ import logo from '../../assets/icon.svg.webp';
 import noUser from '../../assets/no-user.jpg';
 import { LogoContainer, Title, Hour, NavigationContainer, NavLinks, NavLink, SignOut } from "./navigation.styles";
 
-const Navigation: FC = () => {
+const Navigation = () => {
 
     const { currentUser } = useContext(UserContext);
 
-    // if(currentUser !== null) {
-    // console.log(currentUser.photoURL);
-    // }
+    if(currentUser !== null) {
+    console.log(currentUser.photoURL);
+    }
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
@@ -40,7 +40,7 @@ const Navigation: FC = () => {
                         <NavLink as='span' onClick={signInWithGoogle}>SIGN IN</NavLink>
                     )}
                     {currentUser ? (
-                    <img src={currentUser.photoURL} onClick={signOutUser} alt="Sign out" />
+                    <img src={currentUser.photoURL} onClick={signOutUser} />
                     ) : (
                     <img src={noUser} onClick={signInWithGoogle} alt="Sign in" />
                     )}

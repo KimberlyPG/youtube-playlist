@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
-import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink } from "./watch.styles";
+import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink, ReactPlay } from "./watch.styles";
 import { useAppSelector  } from "../../app/hooks";
 import { selectVideo } from "../../features/videos/videoSlice";
 
@@ -13,12 +13,17 @@ const Watch = ( ) => {
     return(
         <WatchContainer>
             <VideoContainer>
-                <ReactPlayer 
-                    url={`https://www.youtube.com/watch?v=${video.id}`}
-                    controls = {true}
-                    width= "1200px"
-                    height= "663px"
-                />  
+                <ReactPlay>
+                    <ReactPlayer 
+                        url={`https://www.youtube.com/watch?v=${video.id}`}
+                        controls = {true}
+                        // width= "1200px"
+                        // height= "663px"
+                        width= "100%"
+                        height= "100%"
+                        object-fit= "cover"
+                    /> 
+                </ReactPlay> 
             <Title>{video.title}</Title>
             </VideoContainer>
             <PlaylistContainer>
