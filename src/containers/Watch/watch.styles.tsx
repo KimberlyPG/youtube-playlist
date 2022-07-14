@@ -33,6 +33,7 @@ export const PlaylistContainer = styled.div`
   @media (max-width: 450px) {
     & {
         width: 100vh;
+        // background: #f9f9f9;
     }
   }
 `;
@@ -60,7 +61,7 @@ export const Title = styled.div`
   @media (max-width: 1120px) {
     & {
         margin-left: 10px;
-        font-size: 21px;
+        font-size: 17px;
     }
   }
 `;
@@ -74,8 +75,7 @@ export const VideoLink = styled(Link)`
   margin-bottom: 15px;
   cursor: pointer;
   overflow: hidden;
-  // width: 100%;
-
+  
   @media (max-width: 1120px) {
     & {
         width: 65%;
@@ -85,6 +85,7 @@ export const VideoLink = styled(Link)`
   @media (max-width: 450px) {
     & {
       width: 43%;
+      background: #f9f9f9;
       }
   }
 `;
@@ -118,7 +119,7 @@ export const VideosTitle = styled.div`
   @media (max-width: 1120px) {
     & {
         margin-left: 10px;
-        font-size: 16px;
+        font-size: 12px;
     }
   }
 `;
