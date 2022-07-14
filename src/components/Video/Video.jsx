@@ -19,6 +19,7 @@ const Video = ({ video }) => {
         title: video.snippet.title,
         image: video.snippet.thumbnails.high.url
     }
+
     const addVideoToPlaylist = () => {
         addSong(item, currentUser.uid);
         dispatch(addVideo(item));

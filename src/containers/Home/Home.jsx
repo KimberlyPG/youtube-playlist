@@ -35,6 +35,7 @@ const Home = () => {
         youtube .get(`search?&q=${name}`)
         .then((data) => setData(data.data.items));
     }
+    console.log("dat", data);
 
     const handleChange = (event) => {
         event.preventDefault();

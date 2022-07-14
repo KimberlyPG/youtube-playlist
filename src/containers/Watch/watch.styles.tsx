@@ -1,101 +1,126 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const WatchContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 30px auto;
-
-    // @media screen and (max-width: 1024px) {
-    //     flex-direction: column;
-    //     display: grid;
-    //     grid-template-columns: repeat(1, 1fr); 
-    // }
-
-    // @media screen and (max-width: 768px) {
-        
-    // }
-
-    // @media screen and (max-width: 480px) {
-        
-    // }
-`
-
-export const VideoContainer = styled.div`
-    padding: 3% 0 0 6%;
-    width: 1170px;
-    height: 658px;
-    left: 0px;
-    top: 0px;
-    position: relative;
-
-    @media screen and (max-width: 1024px) {
-        // width: 640px;
-        // height: 360px;
-        left: 0px;
-        top: 0px;
-        margin-top: 10%;
-        position: absolute;
+  display: flex;
+  @media (max-width: 1120px) {
+    & {
+      flex-direction: column;
     }
-
-    @media screen and (max-width: 768px) {
-        // width: 932px;
-        // height: 524px;
-        left: 0px;
-        top: 0px;
-        margin-top: 10%;
-        position: absolute;
+  }
+  @media (min-width: 1120px) {
+    & {
+      flex-direction: row;
     }
-
-    @media screen and (max-width: 480px) {
-        // width: 932px;
-        // height: 524px;
-        left: 0px;
-        top: 0px;
-        margin-top: 10%;
-        position: absolute;
-    }
+  }
+  width: 100%;
+  position: relative;
+  height: 100%;
 `;
 
-export const ReactPlay = styled.div`
-    width: 100%;
-    height: 100%;
-    // height: 100%;
-    object-fit: cover;
-`
+export const PlaylistContainer = styled.div`
+  flex: 0.45;
+  padding: 2.5vh 20px 2.5vh 20px;
+  overflow-y: scroll;
+  height: 720px;
+
+  @media (max-width: 1120px) {
+    & {
+        width: 100vh;
+    }
+  }
+
+//   @media (max-width: 450px) {
+//     & {
+//         width: 100vh;
+//     }
+//   }
+`;
+
+export const VideoContainer = styled.div`
+  flex: 1;
+  @media (max-width: 1120px) and (min-width: 992px) {
+    & {
+    margin: auto;
+    }
+  }
+  @media (min-width: 1120px) {
+    & {
+      padding: 2.5vh 20px 2.5vh 90px;
+    }
+  }
+`;
 
 export const Title = styled.div`
-    padding-top: 1%;
-    font-size: 18px;
-    font-family: Roboto;
-    font-weight: bold;
-`
+  padding-top: 2%;
+  font-size: 18px;
+  font-family: Roboto;
+  font-weight: bold;
 
-export const PlaylistContainer = styled.div`
-    overflow-y: scroll;
-    padding: 3% 3% 0 0;
-    height: 730px;
-    width: 29%;
-        img {
-            width: 200px;
-            height: 110px; 
-            object-fit: cover;
-            margin-bottom: 5px;
-            &:hover {
-                opacity: 0.8;
-                }
-        }
-`
-
-export const VideosTitle = styled.div`
-    font-size: 14px;
-    color: black;
-    width: 300px;
-    // display: inline-block
-`
+  @media (max-width: 1120px) {
+    & {
+        margin-left: 10px;
+        font-size: 21px;
+    }
+  }
+`;
 
 export const VideoLink = styled(Link)`
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-`
+  text-decoration: none;
+  color: #030303; 
+  font-family: Roboto;
+  width: 500px;
+  display: flex;
+  margin-bottom: 15px;
+  cursor: pointer;
+  overflow: hidden;
+
+  @media (max-width: 1120px) {
+    & {
+        width: 100vh;
+    }
+  }
+
+  @media (max-width: 450px) {
+    & {
+        width: 100vh;
+    }
+  }
+`;
+
+export const Image = styled.img`
+    margin: -5% 0;
+    width: 240px;
+
+    &:hover {
+        opacity: 0.8;
+        }
+    
+  @media (max-width: 1120px) {
+    & {
+        width: 40vh;
+    }
+  }
+  @media (max-width: 450px) {
+    & {
+
+        width: 53vh;
+        
+    }
+  }
+`;
+
+export const VideosTitle = styled.div`
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+
+  @media (max-width: 1120px) {
+    & {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+  }
+
+`;

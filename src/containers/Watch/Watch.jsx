@@ -1,7 +1,9 @@
 import { useLocation } from "react-router-dom";
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
-import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink, ReactPlay } from "./watch.styles";
+
+import VideoPlayer from "../../components/Video-player/Video-player";
+import { WatchContainer, VideoContainer, Title, PlaylistContainer, VideosTitle, VideoLink, Image } from "./watch.styles";
 import { useAppSelector  } from "../../app/hooks";
 import { selectVideo } from "../../features/videos/videoSlice";
 
@@ -13,17 +15,7 @@ const Watch = ( ) => {
     return(
         <WatchContainer>
             <VideoContainer>
-                <ReactPlay>
-                    <ReactPlayer 
-                        url={`https://www.youtube.com/watch?v=${video.id}`}
-                        controls = {true}
-                        // width= "1200px"
-                        // height= "663px"
-                        width= "100%"
-                        height= "100%"
-                        object-fit= "cover"
-                    /> 
-                </ReactPlay> 
+                <VideoPlayer video={video.title} videoId={video.id}/>
             <Title>{video.title}</Title>
             </VideoContainer>
             <PlaylistContainer>
@@ -31,7 +23,7 @@ const Watch = ( ) => {
                 playlist.filter((items) => items.id !== video.id).map((item) => (
                     <div>
                         <VideoLink to='/watch' state={{item}}>
-                            <img src={item.image} />
+                            <Image src={item.image} />
                             <VideosTitle>{item.title}</VideosTitle>
                         </VideoLink>
                     </div>
