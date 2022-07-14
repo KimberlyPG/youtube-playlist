@@ -30,11 +30,11 @@ export const PlaylistContainer = styled.div`
     }
   }
 
-//   @media (max-width: 450px) {
-//     & {
-//         width: 100vh;
-//     }
-//   }
+  @media (max-width: 450px) {
+    & {
+        width: 100vh;
+    }
+  }
 `;
 
 export const VideoContainer = styled.div`
