@@ -20,9 +20,6 @@ export const searchSlice = createSlice({
         addSearchList: (state, action) => {
             state.push(action.payload);
         },
-        getSearchList: (state, action) => {
-            return state = action.payload;
-        },
         cleanState: (state, action) => {
             console.log("clean :");
             return state = [];

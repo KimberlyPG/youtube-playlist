@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { AiFillPlayCircle } from "react-icons/ai";
+
 import { VideoContainer, Title, Icon, VideoPlayer, Button, VideoLink } from './video.styles';
-import { Link } from "react-router-dom";
-import { useAppDispatch } from '../../app/hooks';
+
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
-    addVideo
+    addVideo, selectVideo
   } from '../../features/videos/videoSlice';
 
-import { addSearchList } from "../../features/search/searchSlice";
 
 import { addSong } from '../../utils/firebase/firebase';
 import { UserContext } from '../../context/user.context';
@@ -15,6 +15,7 @@ import { UserContext } from '../../context/user.context';
 const Video = ({ video }) => {
     const videoId = video.id.videoId;
     const dispatch = useAppDispatch();
+    const playlist = useAppSelector(selectVideo);
     const { currentUser } = useContext(UserContext);
 
     const item = {
@@ -28,21 +29,23 @@ const Video = ({ video }) => {
         dispatch(addVideo(item));
     }
 
+    console.log("include?",playlist.some(video => video.id === item.id));
+    const butonCondition = playlist.some(video => video.id === item.id);
+       
     return (
         <VideoContainer>
-            {/* {addSearchList(item)} */}
             <VideoPlayer>
                 <VideoLink to='/watch' state={{item}}>
                     <img src={item.image} />
                     <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>
                     <Title>{item.title}</Title>
-                    {/* <ReactPlayer 
-                        url={`https://www.youtube.com/watch?v=${videoId}`}
-                        width= "90%"
-                        height="90%"
-                    /> */}
                 </VideoLink>
-                <Button onClick={addVideoToPlaylist}>Add to playlist</Button>
+                    {butonCondition ? (
+                        <Button>In playlist</Button>
+                    ) : (
+                        <Button onClick={addVideoToPlaylist}>Add to playlist</Button>
+                    )}
+                    
             </VideoPlayer>       
         </VideoContainer>
     )

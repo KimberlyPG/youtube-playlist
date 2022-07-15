@@ -25,7 +25,6 @@ const Home = () => {
     const dispatch = useAppDispatch();
 
     const searchList = useAppSelector(selectSearch);
-    // console.log("searchList: ", searchList);
 
     const { currentUser } = useContext(UserContext);
     if(currentUser!=null) {
