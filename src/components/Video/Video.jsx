@@ -15,7 +15,6 @@ import { addSong } from '../../utils/firebase/firebase';
 import { UserContext } from '../../context/user.context';
 
 const Video = ({ video }) => {
-    const videoId = video.id.videoId;
     const dispatch = useAppDispatch();
     const playlist = useAppSelector(selectVideo);
     const { currentUser } = useContext(UserContext);

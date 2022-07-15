@@ -3,6 +3,7 @@ import { collection, getDocs, query } from 'firebase/firestore';
 import { RootState, AppThunk } from '../../app/store';
 
 type SearchListProps = {
+    [x: string]: any;
     id: string;
     description: string;
     image: string;

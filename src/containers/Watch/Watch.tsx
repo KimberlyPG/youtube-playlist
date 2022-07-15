@@ -9,7 +9,7 @@ import { selectVideo } from "../../features/videos/videoSlice";
 
 const Watch = ( ) => {
     const state = useLocation();
-    const video = state.state.item
+    const video = state.state.item;
     const playlist = useAppSelector(selectVideo);
 
     return(

@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom";
-import { useAppDispatch } from "../../app/hooks";
+import { FC } from "react";
+
 import { 
     signInWithGooglePopup
 } from "../../utils/firebase/firebase";
 
-const Authentication = () => {
+const Authentication: FC = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();

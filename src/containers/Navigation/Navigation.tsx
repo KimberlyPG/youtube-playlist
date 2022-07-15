@@ -6,18 +6,18 @@ import {
     signInWithGooglePopup,
     signOutUser
 } from "../../utils/firebase/firebase";
-import { getPlaylistAndDocuments } from "../../utils/firebase/firebase";
 
 import logo from '../../assets/icon.svg.webp';
 import noUser from '../../assets/no-user.jpg';
-import { LogoContainer, Title, Hour, NavigationContainer, NavLinks, NavLink, SignOut } from "./navigation.styles";
+import { LogoContainer, Title, Hour, NavigationContainer, NavLinks, NavLink } from "./navigation.styles";
 
-const Navigation = () => {  
+export type NavigationProps = {
+    photoURL: string;
+}
+
+const Navigation: FC<NavigationProps> = () => { 
+      
     const { currentUser } = useContext(UserContext);
-
-    if(currentUser !== null) {
-    console.log(currentUser.photoURL);
-    }
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();

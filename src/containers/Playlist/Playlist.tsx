@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 import PlaylistVideo from '../../components/Playlist-video/Playlist-video';
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -14,12 +14,12 @@ import {
   } from '../../features/videos/videoSlice';
 import { deleteDocument } from "../../utils/firebase/firebase";
 
-const Playlist = () => {
+const Playlist: FC = () => {
     const playlist = useAppSelector(selectVideo);
     const dispatch = useAppDispatch();
     const { currentUser } = useContext(UserContext);
     
-    const deleteDocumentFromFirebase = (videoId) => {
+    const deleteDocumentFromFirebase = (videoId: string) => {
         deleteDocument(currentUser, videoId)
         dispatch(deleteVideo(videoId))
     }
