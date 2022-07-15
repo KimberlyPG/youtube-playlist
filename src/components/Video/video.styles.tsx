@@ -75,6 +75,10 @@ export const Button = styled.button`
     position: absolute; right:30px; bottom:0px;
     opacity: 0.8;
     font-size: 12px;
-    // color: red;
-    // border: none;
+`
+
+export const VideoAdded = styled.div`
+    position: absolute; right:30px; bottom:0px;
+    opacity: 0.8;
+    font-size: 12px;
 `

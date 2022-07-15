@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { AiFillPlayCircle } from "react-icons/ai";
 
-import { VideoContainer, Title, Icon, VideoPlayer, Button, VideoLink } from './video.styles';
+import { VideoContainer, Title, Icon, VideoPlayer, Button, VideoLink, VideoAdded } from './video.styles';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
+
+import { deleteDocument } from "../../utils/firebase/firebase";
 import {
-    addVideo, selectVideo
+    addVideo, selectVideo, deleteVideo
   } from '../../features/videos/videoSlice';
 
 
@@ -29,6 +31,11 @@ const Video = ({ video }) => {
         dispatch(addVideo(item));
     }
 
+    const deleteDocumentFromFirebase = (videoId) => {
+        deleteDocument(currentUser, videoId)
+        dispatch(deleteVideo(videoId))
+    }
+
     console.log("include?",playlist.some(video => video.id === item.id));
     const butonCondition = playlist.some(video => video.id === item.id);
        
@@ -41,7 +48,7 @@ const Video = ({ video }) => {
                     <Title>{item.title}</Title>
                 </VideoLink>
                     {butonCondition ? (
-                        <Button>In playlist</Button>
+                        <Button onClick={() => deleteDocumentFromFirebase(item.id)}>Delete from playlist</Button>
                     ) : (
                         <Button onClick={addVideoToPlaylist}>Add to playlist</Button>
                     )}
