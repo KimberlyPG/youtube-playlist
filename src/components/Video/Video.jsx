@@ -6,6 +6,9 @@ import { useAppDispatch } from '../../app/hooks';
 import {
     addVideo
   } from '../../features/videos/videoSlice';
+
+import { addSearchList } from "../../features/search/searchSlice";
+
 import { addSong } from '../../utils/firebase/firebase';
 import { UserContext } from '../../context/user.context';
 
@@ -27,7 +30,7 @@ const Video = ({ video }) => {
 
     return (
         <VideoContainer>
-            {/* <PlaylistVideo> */}
+            {/* {addSearchList(item)} */}
             <VideoPlayer>
                 <VideoLink to='/watch' state={{item}}>
                     <img src={item.image} />
@@ -41,7 +44,6 @@ const Video = ({ video }) => {
                 </VideoLink>
                 <Button onClick={addVideoToPlaylist}>Add to playlist</Button>
             </VideoPlayer>       
-            {/* </PlaylistVideo> */}
         </VideoContainer>
     )
 }

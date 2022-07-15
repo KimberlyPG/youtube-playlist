@@ -1,4 +1,5 @@
-import { Form, SearchInput, Icon } from "./search-bar-styles";
+import { FC } from "react";
+import { Form, SearchInput } from "./search-bar-styles";
 import { BsSearch } from 'react-icons/bs';
 
 const SearchBar = ({ handleSubmit, handleChange}) => {

@@ -7,23 +7,10 @@ type PlaylistProps = {
     id: string;
     description: string;
     image: string;
-    // url: string;
 }
 
 const initialState: Array<PlaylistProps> = [
-    // {
-    //     id: string;
-    //     description: "Funny CATS can make you CRY OUT OF LAUGHTE",
-    //     url: "https://www.youtube.com/watch?v=21oQ4X2NxIs"
-    // },
-    // {
-    //     description: "Funny CATS can make you CRY OUT OF LAUGHTE",
-    //     url: "https://www.youtube.com/watch?v=21oQ4X2NxIs"
-    // },
-    // {
-    //     description: "Funny CATS can make you CRY OUT OF LAUGHTE",
-    //     url: "https://www.youtube.com/watch?v=21oQ4X2NxIs"
-    // },
+
 ]
 
 

@@ -1,11 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import videoReducer from '../features/videos/videoSlice';
+import searchReducer from '../features/search/searchSlice';
 
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
     video: videoReducer,
+    list: searchReducer
   },
 });
 

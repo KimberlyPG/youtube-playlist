@@ -49,9 +49,9 @@ const Navigation = () => {
                         <NavLink as='span' onClick={signInWithGoogle}>SIGN IN</NavLink>
                     )}
                     {currentUser ? (
-                    <img src={currentUser.photoURL} onClick={signOutUser} />
+                    <Link to='/'><img src={currentUser.photoURL} /></Link>
                     ) : (
-                    <img src={noUser} onClick={signInWithGoogle} alt="Sign in" />
+                    <Link to='/'><img src={noUser} /></Link>
                     )}
                 </NavLinks>
             </NavigationContainer>

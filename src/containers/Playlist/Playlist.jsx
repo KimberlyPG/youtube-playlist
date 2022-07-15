@@ -3,10 +3,11 @@ import { useContext } from 'react';
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
 import { AiFillPlayCircle } from "react-icons/ai";
+import add from '../../assets/add.gif'
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 
-import { PlaylistContainer, PlaylistVideo, Title, VideoPlayer, Button, PlaylistLink, Icon } from './playlist.styles';
+import { PlaylistContainer, PlaylistVideo, Title, VideoPlayer, Button, PlaylistLink, Icon, NoPlaylist } from './playlist.styles';
 
 import { selectVideo } from "../../features/videos/videoSlice";
 import { UserContext } from '../../context/user.context';
