@@ -16,9 +16,8 @@ Playlist page:
 Watch page:
 ![image](https://user-images.githubusercontent.com/65067847/179872512-66940b6e-9d08-483f-8460-50e5a1bb1621.png)
 
-Running the youtube app
 
-## Available Scripts
+## Running the youtube app
 In the project directory, you can run:
 
 ### `npm start`
