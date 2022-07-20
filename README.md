@@ -2,9 +2,9 @@ Demo:</br>
 https://db-22a49.web.app/
 
 Functionality</br>
-The user can: 
--Search youtube video 
--Watch a video 
+The user can: </br>
+-Search youtube video </br>
+-Watch a video </br>
 -Add a video to a playlist and delete from the playlist 
 
 Home:
