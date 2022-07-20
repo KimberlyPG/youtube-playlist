@@ -1,5 +1,19 @@
-# Getting Started with Create React App
+Project demo:
+https://db-22a49.web.app/
 
+Functionality
+you can search youtube music, watch add it to the playlist and delete it
+
+Home:
+![image](https://user-images.githubusercontent.com/65067847/179872402-7b10e8e0-d724-4ead-b81b-236c1d5f141a.png)
+
+Playlist page:
+![image](https://user-images.githubusercontent.com/65067847/179872471-b201ee55-629d-4d19-a2c0-b7f749cb5d0e.png)
+
+Watch page:
+![image](https://user-images.githubusercontent.com/65067847/179872512-66940b6e-9d08-483f-8460-50e5a1bb1621.png)
+
+# Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
 ## Available Scripts
