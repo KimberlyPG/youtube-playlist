@@ -1,8 +1,11 @@
-demo:</br>
+Demo:</br>
 https://db-22a49.web.app/
 
-<strongProject>Functionality</strongProject></br>
-you can search youtube music, watch add it to the playlist and delete it
+Functionality</br>
+The user can: 
+-Search youtube video 
+-Watch a video 
+-Add a video to a playlist and delete from the playlist 
 
 Home:
 ![image](https://user-images.githubusercontent.com/65067847/179872402-7b10e8e0-d724-4ead-b81b-236c1d5f141a.png)
