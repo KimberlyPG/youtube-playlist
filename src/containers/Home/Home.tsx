@@ -1,15 +1,17 @@
-import { useState, useContext, FormEvent, ChangeEvent, FC, useEffect } from "react";
+import { useState, FormEvent, ChangeEvent, FC } from "react";
 import { Outlet } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import SearchBar from "../../components/Search-bar/Search-bar";
 import Video from "../../components/Video/Video";
 import { VideosContainer } from "./home.styles";
+import { 
+    addSearchList, 
+    cleanState, 
+    selectSearch 
+} from "../../features/search/searchSlice";
 
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import youtube from "../../api/youtube";
-import { UserContext } from "../../context/user.context";
-import { addSearchList, cleanState, selectSearch } from "../../features/search/searchSlice";
-
 
 export type VideoProps = {
     id: string;
@@ -24,10 +26,7 @@ const Home: FC = () => {
 
     const searchList = useAppSelector(selectSearch);
 
-    const { currentUser } = useContext(UserContext);
-    if(currentUser!=null) {
-    }
-
+    // If I want to show recomended results
     // useEffect(() => {
     //     youtube .get(`search?&q=${name}`)
     //     .then((data) => setData(data.data.items));
@@ -65,6 +64,6 @@ const Home: FC = () => {
                 </VideosContainer> 
         </>
     )
-}
+};
 
 export default Home;

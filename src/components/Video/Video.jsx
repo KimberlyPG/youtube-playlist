@@ -35,7 +35,6 @@ const Video = ({ video }) => {
         dispatch(deleteVideo(videoId))
     }
 
-    console.log("include?",playlist.some(video => video.id === item.id));
     const butonCondition = playlist.some(video => video.id === item.id);
        
     return (
@@ -55,6 +54,6 @@ const Video = ({ video }) => {
             </VideoPlayer>       
         </VideoContainer>
     )
-}
+};
 
 export default Video;

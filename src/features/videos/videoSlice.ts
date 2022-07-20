@@ -13,7 +13,6 @@ const initialState: Array<PlaylistProps> = [
 
 ]
 
-
 export const videoSlice = createSlice({
     name: 'video',
     initialState,
@@ -26,7 +25,6 @@ export const videoSlice = createSlice({
             }
         },
         deleteVideo: (state, action) => {
-            console.log("payload delete: ", action.payload);
             return state.filter((videoItem) => videoItem.id !== action.payload); 
         },
         getVideo: (state, action) => {

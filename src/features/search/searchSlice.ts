@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { collection, getDocs, query } from 'firebase/firestore';
-import { RootState, AppThunk } from '../../app/store';
+import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
 
 type SearchListProps = {
     [x: string]: any;
@@ -13,7 +12,6 @@ const initialState: Array<SearchListProps> = [
 
 ]
 
-
 export const searchSlice = createSlice({
     name: 'list',
     initialState,
@@ -22,7 +20,6 @@ export const searchSlice = createSlice({
             state.push(action.payload);
         },
         cleanState: (state, action) => {
-            console.log("clean :");
             return state = [];
         }
     }

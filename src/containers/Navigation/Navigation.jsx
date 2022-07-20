@@ -1,29 +1,35 @@
 import moment from "moment";
-import { FC, useContext } from "react";
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { UserContext } from '../../context/user.context';
+
+import { 
+    LogoContainer, 
+    Title, 
+    Hour, 
+    NavigationContainer, 
+    NavLinks, 
+    NavLink 
+} from "./navigation.styles";
+
 import { 
     signInWithGooglePopup,
     signOutUser
 } from "../../utils/firebase/firebase";
-
+import { UserContext } from '../../context/user.context';
 import logo from '../../assets/icon.svg.webp';
 import noUser from '../../assets/no-user.jpg';
-import { LogoContainer, Title, Hour, NavigationContainer, NavLinks, NavLink } from "./navigation.styles";
 
-export type NavigationProps = {
-    photoURL: string;
-}
 
-const Navigation: FC<NavigationProps> = () => { 
+
+const Navigation = () => { 
       
     const { currentUser } = useContext(UserContext);
+
+    const windowWidth = window.innerWidth;
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
     }
-
-    const windowWidth = window.innerWidth;
 
     return (
         <div>
@@ -49,7 +55,7 @@ const Navigation: FC<NavigationProps> = () => {
                         <NavLink as='span' onClick={signInWithGoogle}>SIGN IN</NavLink>
                     )}
                     {currentUser ? (
-                    <Link to='/'><img src={currentUser.photoURL} /></Link>
+                    <Link to='/'><img src={currentUser.photoURL}/></Link>
                     ) : (
                     <Link to='/'><img src={noUser} /></Link>
                     )}
@@ -58,6 +64,6 @@ const Navigation: FC<NavigationProps> = () => {
             <Outlet />
         </div>
     )
-}
+};
 
 export default Navigation;

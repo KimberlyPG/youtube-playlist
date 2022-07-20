@@ -46,13 +46,11 @@ export const addSong = ( objectsToAdd, currentUser) => {
   setDoc(docRef, objectsToAdd);
 }
 
-// Detele playlist from firebase
 export const deleteDocument = async (currentUser, documentName) => {
   await deleteDoc(doc(db, 'playlist', currentUser.uid, 'userPlaylist', documentName));  
   console.log("deleted");
 }
 
-// get collection from firestore
 export const getPlaylistAndDocuments = async (currentUser) => {
   const collectionRef = collection(db, 'playlist', currentUser.uid, 'userPlaylist');
   const q = query(collectionRef);

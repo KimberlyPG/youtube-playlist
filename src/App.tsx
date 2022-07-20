@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navigation from './containers/Navigation/Navigation'
 import Home from './containers/Home/Home';
-import Authentication from './containers/Authentication/Authentication';
 import Playlist from './containers/Playlist/Playlist';
 import Watch from './containers/Watch/Watch';
 
@@ -21,7 +20,6 @@ function App() {
 
   const dispatch = useAppDispatch();
   const { currentUser } = useContext(UserContext);
-  console.log("User: ", currentUser);
 
   useEffect(() => {
     if(!!currentUser) {
@@ -40,7 +38,6 @@ function App() {
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
             <Route path='playlist' element={<Playlist />} />
-            <Route path='authentication' element={<Authentication />} />
             <Route path='watch' element={<Watch />} />
           </Route>
         </Routes>
