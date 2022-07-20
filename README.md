@@ -1,7 +1,7 @@
-Project demo:</br>
+demo:</br>
 https://db-22a49.web.app/
 
-Functionality
+<strongProject>Functionality</strongProject></br>
 you can search youtube music, watch add it to the playlist and delete it
 
 Home:
