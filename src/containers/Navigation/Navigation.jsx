@@ -25,6 +25,8 @@ const Navigation = () => {
       
     const { currentUser } = useContext(UserContext);
 
+    const userImage = currentUser?.photoURL;
+
     const windowWidth = window.innerWidth;
 
     const signInWithGoogle = async () => {
@@ -55,7 +57,7 @@ const Navigation = () => {
                         <NavLink as='span' onClick={signInWithGoogle}>SIGN IN</NavLink>
                     )}
                     {currentUser ? (
-                    <Link to='/'><img src={currentUser.photoURL}/></Link>
+                    <Link to='/'><img src={userImage}/></Link>
                     ) : (
                     <Link to='/'><img src={noUser} /></Link>
                     )}

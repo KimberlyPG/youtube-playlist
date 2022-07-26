@@ -38,12 +38,12 @@ const Video = ({ video }) => {
     const butonCondition = playlist.some(video => video.id === item.id);
        
     return (
-        <VideoContainer>
-            <VideoPlayer>
-                <VideoLink to='/watch' state={{item}}>
-                    <img src={item.image} />
-                    <Icon><AiFillPlayCircle color= "red" size= "90px"/></Icon>
-                    <Title>{item.title}</Title>
+        <VideoContainer data-testid='video_container'>
+            <VideoPlayer data-testid='video_player'>
+                <VideoLink data-testid='video_link' to='/watch' state={{item}}>
+                    <img data-testid='video_img' src={item.image} />
+                    <Icon data-testid='video_icon'><AiFillPlayCircle color= "red" size= "90px"/></Icon>
+                    <Title data-testid='video_title'>{item.title}</Title>
                 </VideoLink>
                     {butonCondition ? (
                         <Button onClick={() => deleteDocumentFromFirebase(item.id)}>Delete from playlist</Button>

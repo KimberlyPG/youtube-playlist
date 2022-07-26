@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent, FC } from "react";
+import { useState, FormEvent, ChangeEvent, FC, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 import SearchBar from "../../components/Search-bar/Search-bar";
